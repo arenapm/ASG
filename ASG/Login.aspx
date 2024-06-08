@@ -8,7 +8,7 @@
             <asp:Label ID="lblUsuario" runat="server" Text="Ingrese Usuario"></asp:Label><br />
             <asp:TextBox ID="txtUser" runat="server" CssClass="form-control"></asp:TextBox><br/>
             <asp:Label ID="lblpwd" runat="server" Text="Ingrese Contraseña"></asp:Label><br />
-            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control"></asp:TextBox><br/>
+            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox><br/>
             <asp:Button ID="btnIngresar" runat="server" CssClass="btn btn-primary" Text="Ingresar" OnClick="btnIngresar_Click" />
         </section>
 

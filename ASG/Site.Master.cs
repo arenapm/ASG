@@ -35,13 +35,16 @@ namespace ASG
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                     AgregarElementoNavbar("Bitacora", "Bitacora.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
+                    Usuario.Text = "Bienvenido: " + us.Login;
                 }
                 else
                 {
                     AgregarElementoNavbar("Home", "Default.aspx");
                     AgregarElementoNavbar("Sorteos", "Sorteos.aspx");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
+                    AgregarElementoNavbar("Carrito", "Nosotros.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
+                    Usuario.Text = "Bienvenido: "+us.Login;
                 }
                 
 
@@ -52,6 +55,7 @@ namespace ASG
                 AgregarElementoNavbar("Home", "Default.aspx");
                 AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                 AgregarElementoNavbar("Login", "Login.aspx");
+                Usuario.Text = "Bienvenido";
             }
         }
 
@@ -67,6 +71,11 @@ namespace ASG
 
             li.Controls.Add(a);
             navItems.Controls.Add(li);
+        }
+
+        private void AgregarUsuario(string texto, string url)
+        {
+            
         }
     }
 }
