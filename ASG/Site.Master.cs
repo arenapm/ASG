@@ -42,7 +42,7 @@ namespace ASG
                     AgregarElementoNavbar("Home", "Default.aspx");
                     AgregarElementoNavbar("Sorteos", "Sorteos.aspx");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
-                    AgregarElementoNavbar("Carrito", "Nosotros.aspx");
+                    AgregarElementoNavbar("Carrito", "Carrito.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
                     Usuario.Text = "Bienvenido: "+us.Login;
                 }
@@ -54,6 +54,7 @@ namespace ASG
                 // Navbar para visitantes no autenticados
                 AgregarElementoNavbar("Home", "Default.aspx");
                 AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
+                AgregarElementoNavbar("Registrarse", "Registro.aspx");
                 AgregarElementoNavbar("Login", "Login.aspx");
                 Usuario.Text = "Bienvenido";
             }

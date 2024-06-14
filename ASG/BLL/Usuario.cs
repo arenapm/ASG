@@ -12,6 +12,7 @@ namespace ASG.BLL
     public class Usuario
     {
         UsuarioData mp_usuario = new UsuarioData();
+        DAL.usuario mpu = new DAL.usuario();
 
         public BE.Usuario buscarUsuario(string usr,string pwd)
         {
@@ -29,6 +30,11 @@ namespace ASG.BLL
                 i++;
             }
             return encontrado;
+        }
+
+        public int insertar(BE.Usuario us)
+        {
+            return mpu.insertar(us);
         }
     }
 }

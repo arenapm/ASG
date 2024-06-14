@@ -16,9 +16,13 @@ namespace ASG
         BLL.Bitacora gBit = new BLL.Bitacora();
         Permiso p = new Permiso(1, "ADMIN");
         Random rnd = new Random();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (SessionMannager.GetInstance != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)

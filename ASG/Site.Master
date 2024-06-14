@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %>ASG Sorteos</title>
+    <title><%: Page.Title %> ASGSorteos</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -34,8 +34,10 @@
                 </div>
                 <asp:Label ID="Usuario" runat="server" ForeColor="White"></asp:Label>
             </nav>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
+     <div>
+         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+     </div>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
