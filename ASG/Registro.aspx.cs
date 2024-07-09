@@ -30,8 +30,7 @@ namespace ASG
                 Label1.Visible = true;
             }else if (txtpwd.Text != txtpwd1.Text)
             {
-                lblMensaje.Text = "Las contraseñas no coinciden";
-                lblMensaje.Visible = true;
+
             }
             else
             {
@@ -42,6 +41,18 @@ namespace ASG
             }
 
 
+        }
+
+        protected void txtpwd1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtpwd.Text != txtpwd1.Text)
+            {
+                pass2.Visible = true;
+            }
+            else
+            {
+                pass2.Visible = false;
+            }
         }
     }
 }

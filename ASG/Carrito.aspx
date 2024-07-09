@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <main>
     <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="aspnetTitle">ASG Sorteos</h1>
         <asp:Label ID="lbllogout" runat="server"/>
             <div class="container mt-5">
                  <h1 class="text-center mb-4">Carrito de Sorteos</h1>
