@@ -4,14 +4,32 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ASG.Servicios;
+using ASG.BE;
 
 namespace ASG
 {
     public partial class _Default : Page
     {
+        BLL.Usuario gUsu = new BLL.Usuario();
+        BE.Usuario us;
+        Servicios.DV gdv = new Servicios.DV();
         protected void Page_Load(object sender, EventArgs e)
         {
+            int incons = gdv.verificarDVs();
+            Permiso p = new Permiso(1, "ADMIN");
+            if (SessionMannager.GetInstance != null)
+            {
+                us = SessionMannager.GetInstance.Usuario;
+                if (gUsu.Validar(us, p) & incons == -1)
+                {
+                    Panel1.Visible = true;
+                }
+                else
+                {
 
+                }
+            }
         }
     }
 }

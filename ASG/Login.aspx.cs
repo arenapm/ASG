@@ -28,23 +28,32 @@ namespace ASG
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             BE.Usuario unUsuario = gUsuario.buscarUsuario(txtUser.Text, txtPass.Text);
+            bool usBloq = gUsuario.ObtenerBloq(unUsuario.ID);
             if (unUsuario != null)
             {
-                if(unUsuario.ID == 1)
+                if(usBloq == false)
                 {
-                    unUsuario.Permisos.Add(p);
+                    if (unUsuario.ID == 1)
+                    {
+                        unUsuario.Permisos.Add(p);
+                    }
+                    SessionMannager.Login(unUsuario);
+                    bi = new BE.Bitacora();
+                    bi.ID = rnd.Next(1, 100);
+                    bi.DESC = $"El usuario {unUsuario.Login} ingreso al sistema";
+                    bi.CRIT = 1;
+                    gBit.insertar(bi);
+                    Response.Redirect("Default.aspx");
                 }
-                SessionMannager.Login(unUsuario);
-                bi = new BE.Bitacora();
-                bi.ID = rnd.Next(1, 100);
-                bi.DESC = $"El usuario {unUsuario.Login} ingreso al sistema";
-                bi.CRIT = 1;
-                gBit.insertar(bi);
-                Response.Redirect("Default.aspx");
+                else
+                {
+                    Panel1.Visible = true;
+                }
+
             }
             else
             {
-                Response.Redirect("Login.aspx");
+               
             }
         }
     }

@@ -15,6 +15,7 @@ namespace ASG
         BLL.Usuario gUsu = new BLL.Usuario();
         BE.Usuario us;
         BLL.Bitacora gBit = new BLL.Bitacora();
+        BE.Bitacora bi;
         List<BE.Bitacora> bitacoras;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,11 +31,20 @@ namespace ASG
                 }
                 else
                 {
+                    gUsu.Bloquear(us);
+                    bi = new BE.Bitacora();
+                    bi.DESC = $"Intruso detectado, el usuario {us.Login} intento ingresar a herramientas administrativas y fue bloqueado";
+                    bi.CRIT = 5;
+                    gBit.insertar(bi);
                     Response.Redirect("Default.aspx");
                 }
             }
             else
             {
+                bi = new BE.Bitacora();
+                bi.DESC = "Se detecto un intento de intruso sin acceso";
+                bi.CRIT = 5;
+                gBit.insertar(bi);
                 Response.Redirect("Default.aspx");
             }
         }

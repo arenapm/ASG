@@ -35,6 +35,7 @@ namespace ASG
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                     AgregarElementoNavbar("Bitacora", "Bitacora.aspx");
                     AgregarElementoNavbar("Respaldos", "Respaldos.aspx");
+                    AgregarElementoNavbar("Centro", "Centro.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
                     Usuario.Text = "Bienvenido: " + us.Login;
                 }
