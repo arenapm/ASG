@@ -5,8 +5,11 @@
     <main>
         <section aria-labelledby="aspnetTitle">
             <div class="container text-center">
-                <asp:Button ID="Respaldar" runat="server" Text="Respaldar" OnClick="Respaldar_Click" /><br />
-                <asp:Button ID="Restaurar" runat="server" Text="Restaurar" OnClick="Restaurar_Click" />
+                <br />
+                <asp:Button ID="Respaldar" runat="server" Text="Realizar copia de seguridad" OnClick="Respaldar_Click" /><br /><br /><br />
+                <asp:FileUpload ID="fileUpload" runat="server" />
+                <asp:Button ID="Restaurar" runat="server" Text="Restaurar copia de seguridad" OnClick="Restaurar_Click" />
+                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
             </div>
 
         </section>

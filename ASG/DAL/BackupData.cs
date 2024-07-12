@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Security.Policy;
 
@@ -24,7 +25,7 @@ namespace LAB_Arena.DAL
 
             con.ExecNonReader(cmd);
 
-            return directory + name;
+            return name;
         }
 
         public static void RestoreDatabase(string file)
@@ -40,14 +41,21 @@ namespace LAB_Arena.DAL
                 $"RESTORE DATABASE [{db}] FROM  DISK = N'{file}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 5 " +
                 $"ALTER DATABASE [{db}] SET MULTI_USER";
             cmd.CommandType = CommandType.Text;
-            cmd.ExecuteNonQuery();
-            conexion.Close();
-            GC.Collect();
-        }
 
-        public static void VerificarDatabase()
-        {
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al ejecutar la restauración: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
             
+            GC.Collect();
         }
     }
 }
