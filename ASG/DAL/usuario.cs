@@ -82,7 +82,7 @@ namespace ASG.DAL
         public int Bloquear(BE.Usuario us)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(acceso.CrearParametro("@pwd", us.ID));
+            parametros.Add(acceso.CrearParametro("@idus", us.ID));
             acceso.Abrir();
             int res = acceso.Escribir("BLOQ_US", parametros);
             acceso.Cerrar();

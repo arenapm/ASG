@@ -98,8 +98,10 @@ namespace ASG.DAL
             {
                 resultado = cmd.ExecuteNonQuery();
             }
-            catch
-            { resultado = -1; }
+            catch (Exception ex)
+            { 
+                resultado = -1; 
+            }
             return resultado;
 
         }

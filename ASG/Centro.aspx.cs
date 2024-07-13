@@ -33,7 +33,9 @@ namespace ASG
                     bi.DESC = $"Intruso detectado, el usuario {us.Login} intento ingresar a herramientas administrativas y fue bloqueado";
                     bi.CRIT = 5;
                     gBi.insertar(bi);
+                    SessionMannager.Logout();
                     Response.Redirect("Default.aspx");
+
                 }
             }
             else
@@ -52,7 +54,7 @@ namespace ASG
 
         protected void btnRespaldo_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("Respaldos.aspx");
         }
 
         protected void btnInconsistencia_Click(object sender, EventArgs e)

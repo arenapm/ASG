@@ -16,9 +16,9 @@ namespace ASG
         Permiso p = new Permiso(1, "ADMIN");
         protected void Page_Load(object sender, EventArgs e)
         {
+                GenerateNavbar();
             if (!IsPostBack)
             {
-                GenerateNavbar();
             }
         }
 
@@ -33,8 +33,6 @@ namespace ASG
                     // Navbar para usuarios autenticados como admin
                     AgregarElementoNavbar("Home", "Default.aspx");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
-                    AgregarElementoNavbar("Bitacora", "Bitacora.aspx");
-                    AgregarElementoNavbar("Respaldos", "Respaldos.aspx");
                     AgregarElementoNavbar("Centro", "Centro.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
                     Usuario.Text = "Bienvenido: " + us.Login;
@@ -42,7 +40,7 @@ namespace ASG
                 else
                 {
                     AgregarElementoNavbar("Home", "Default.aspx");
-                    AgregarElementoNavbar("Sorteos", "Sorteos.aspx");
+                    AgregarElementoNavbar("Sorteos", "#");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                     AgregarElementoNavbar("Carrito", "Carrito.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");

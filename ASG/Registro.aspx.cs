@@ -28,7 +28,8 @@ namespace ASG
             {
                 Label1.Text = "Debe completar todos los campos";
                 Label1.Visible = true;
-            }else if (txtpwd.Text != txtpwd1.Text)
+            }
+            else if (txtpwd.Text != txtpwd1.Text)
             {
 
             }
