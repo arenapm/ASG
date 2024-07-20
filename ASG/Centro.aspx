@@ -7,7 +7,6 @@
             <br />
             <div class="container">
                 <div class="row">
-
                     <div class="col-sm-12 text-center">
                         <h1>Bienvenido al centro de Gestion ASG</h1>
                     </div>
@@ -22,6 +21,14 @@
                     </div>
                     <div class="col-sm-4">
                         <asp:Button ID="btnDesbloqueos" CssClass="btn btn-lg btn-secondary btn-block" runat="server" Text="Inconsistencias"  OnClick="btnInconsistencia_Click"  />
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Usuarios Bloqueados</h2>
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table"/>
                     </div>
                 </div>
             </div>

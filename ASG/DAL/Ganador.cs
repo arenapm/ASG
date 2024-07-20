@@ -18,7 +18,7 @@ namespace ASG.DAL
         public BE.Ganador Convertir(DataRow registro)
         {
             BE.Ganador m = new BE.Ganador();
-            m.ID = int.Parse(registro["id"].ToString());
+            m.ID = int.Parse(registro["idGanador"].ToString());
             m.Usurario = gUsu.Obtener(int.Parse(registro["idUsuario"].ToString()));
             m.Sorteo = gSort.Obtener(int.Parse(registro["idSorteo"].ToString()));
             m.DV = int.Parse(registro["DV"].ToString());
@@ -39,6 +39,30 @@ namespace ASG.DAL
             }
 
             return ganadores;
+        }
+
+
+        public int DvGan(BE.Ganador entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", entidad.ID));
+            parametros.Add(acceso.CrearParametro("@dv", entidad.DV));
+            acceso.Abrir();
+            int res = acceso.Escribir("GAN_DV", parametros);
+            acceso.Cerrar();
+            return res;
+        }
+
+        public int EliminarReg(BE.Ganador entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", entidad.ID));
+            acceso.Abrir();
+            int res = acceso.Escribir("GAN_DEL", parametros);
+            acceso.Cerrar();
+            return res;
         }
 
     }

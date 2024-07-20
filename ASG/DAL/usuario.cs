@@ -35,6 +35,63 @@ namespace ASG.DAL
         }
 
 
+
+        public Usuario Obtener(string user, string pass)
+        {
+            Conexion con = new Conexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = $"SELECT * FROM USUARIO WHERE LOGIN='{user}'";
+            cmd.CommandType = CommandType.Text;
+
+            DataTable dt = con.ExecReader(cmd);
+
+            Usuario unUsuario = null;
+
+            if (dt.Rows.Count == 1)
+            {
+                if ((string)dt.Rows[0][2] == pass)
+                {
+                    unUsuario = new Usuario();
+                    unUsuario.ID = (int)dt.Rows[0][0];
+                    unUsuario.Login = (string)dt.Rows[0][1];
+                    unUsuario.Password = (string)dt.Rows[0][2];
+                    unUsuario.Intentos = (int)dt.Rows[0][3];
+                    
+                }
+                else
+                {
+                    SumarInt((int)dt.Rows[0][0]);
+                }
+
+            }
+
+            return unUsuario;
+        }
+
+        public int SumarInt(int id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", id));
+            acceso.Abrir();
+            int res = acceso.Escribir("US_SUMAR_INT", parametros);
+            acceso.Cerrar();
+            return res;
+        }
+
+        public int ResetearInt(BE.Usuario entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", entidad.ID));
+            acceso.Abrir();
+            int res = acceso.Escribir("US_RESET_INT", parametros);
+            acceso.Cerrar();
+            return res;
+        }
+
+
         public Usuario Obtener(int id)
         {
             Conexion con = new Conexion();
@@ -49,6 +106,7 @@ namespace ASG.DAL
 
             if (dt.Rows.Count > 0)
             {
+
                 unUsuario = new Usuario();
 
                 unUsuario.ID = (int)dt.Rows[0][0];
@@ -87,6 +145,21 @@ namespace ASG.DAL
             int res = acceso.Escribir("BLOQ_US", parametros);
             acceso.Cerrar();
             return res;
+        }
+
+        public List<BE.Usuario> ListarBloq()
+        {
+            acceso.Abrir();
+            DataTable tabla = acceso.Leer("LIST_BLOQ");
+            acceso.Cerrar();
+
+            List<BE.Usuario> usuarios = new List<BE.Usuario>();
+            foreach (DataRow registro in tabla.Rows)
+            {
+                usuarios.Add(Obtener(int.Parse(registro["id_usuario"].ToString())));
+            }
+
+            return usuarios;
         }
 
     }

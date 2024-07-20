@@ -24,5 +24,10 @@ namespace ASG.BLL
         {
             return mp_sorteo.Listar();
         }
+
+        public int MaxId()
+        {
+            return mp_sorteo.MaxId();
+        }
     }
 }

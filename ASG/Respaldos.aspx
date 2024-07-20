@@ -16,7 +16,7 @@
                                             <h2>Respaldar base de datos</h2>
                                         </div>
                                         <div class="card-body">
-                                            <asp:Button ID="Respaldar" runat="server"  CssClass="btn btn-primary" Text="Descargar backup" OnClick="Respaldar_Click" />
+                                            <asp:Button ID="Respaldar" runat="server" CssClass="btn btn-primary" Text="Descargar backup" OnClick="Respaldar_Click" />
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="card-body">
                                             <asp:FileUpload ID="fileUpload" runat="server" CssClass="btn btn-primary" />
-                                            <asp:Button ID="Restaurar" runat="server"  CssClass="btn btn-primary" Text="Restaurar backup" OnClick="Restaurar_Click" />
+                                            <asp:Button ID="Restaurar" runat="server" CssClass="btn btn-primary" Text="Restaurar backup" OnClick="Restaurar_Click" />
                                             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
 
             <div class="container text-center">
                 <br />
-                
+
             </div>
 
         </section>

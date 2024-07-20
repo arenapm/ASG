@@ -11,6 +11,7 @@
                         <div class="card card mb-4">
                             <div class="card-header">
                                 <h2>Iniciar Sesión</h2>
+                                <asp:Label ID="txtLogin" runat="server" CssClass="bg-warning" Visible="false" Text="Usuario y/o Contraseñas incorrectos"></asp:Label>
                             </div>
                             <div class="card-body">
                                 <asp:Literal ID="warningMessage" runat="server" Visible="false"></asp:Literal>
@@ -32,6 +33,21 @@
                                 <div class="card-body text-center">
                                     <h2 class="card-title">USUARIO BLOQUEADO</h2>
                                     <p class="card-text">Su usuario fue bloqueado por intentar ingresar a herramientas administrativas sin un permiso.</p>
+                                    <p class="card-text">Contactese con el soporte para llevar adelante su caso.</p>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </div>
+                        <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <asp:Panel ID="Panel2" runat="server" Visible="false">
+                            <div class="card mb-4 bg-danger text-white">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title">USUARIO BLOQUEADO</h2>
+                                    <p class="card-text">Su usuario fue bloqueado por intentar ingresar reiteradas veces con la contraseña incorrecta.</p>
                                     <p class="card-text">Contactese con el soporte para llevar adelante su caso.</p>
                                 </div>
                             </div>

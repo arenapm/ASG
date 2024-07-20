@@ -24,7 +24,8 @@ namespace ASG
                 us = SessionMannager.GetInstance.Usuario;
                 if (gUsu.Validar(us, p))
                 {
-
+                    GridView1.DataSource = gUsu.ListarBloq();
+                    GridView1.DataBind();
                 }
                 else
                 {

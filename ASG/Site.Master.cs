@@ -40,7 +40,7 @@ namespace ASG
                 else
                 {
                     AgregarElementoNavbar("Home", "Default.aspx");
-                    AgregarElementoNavbar("Sorteos", "#");
+                    AgregarElementoNavbar("Sorteos", "Sorteo.aspx");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                     AgregarElementoNavbar("Carrito", "Carrito.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");

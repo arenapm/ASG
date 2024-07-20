@@ -36,6 +36,7 @@ namespace ASG
                     bi.DESC = $"Intruso detectado, el usuario {us.Login} intento ingresar a herramientas administrativas y fue bloqueado";
                     bi.CRIT = 5;
                     gBit.insertar(bi);
+                    SessionMannager.Logout();
                     Response.Redirect("Default.aspx");
                 }
             }

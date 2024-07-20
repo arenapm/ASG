@@ -52,6 +52,8 @@ namespace ASG.Servicios
         {
             int verificador = 0;
 
+            ganadores = null;
+            sorteos = null;
             ganadores = gGan.Listar();
             sorteos = gSort.Listar();
 
@@ -86,6 +88,25 @@ namespace ASG.Servicios
                 verificador = 0;
             }
             return verificador;
+        }
+
+        public int SolucionarDV(BE.Sorteo sort)
+        {
+            return gSort.DvSort(sort);
+        }
+
+        public int SolucionarDV(BE.Ganador gan)
+        {
+            return gGan.DvGan(gan);
+        }
+
+        public int EliminarReg(BE.Sorteo sort)
+        {
+            return gSort.EliminarReg(sort);
+        }
+        public int EliminarReg(BE.Ganador gan)
+        {
+            return gGan.EliminarReg(gan);
         }
 
     }

@@ -38,6 +38,7 @@ namespace ASG
                     bi.DESC = $"Intruso detectado, el usuario {us.Login} intento ingresar a herramientas administrativas y fue bloqueado";
                     bi.CRIT = 5;
                     gBi.insertar(bi);
+                    SessionMannager.Logout();
                     Response.Redirect("Default.aspx");
                 }
             }
@@ -50,13 +51,57 @@ namespace ASG
                 Response.Redirect("Default.aspx");
             }
         }
+
+        public void Enlazar()
+        {
+            GridView1.DataSource = null;
+            GridView2.DataSource = null;
+            gDV.verificarDVs();
+            GridView1.DataSource = gDV.SortDV;
+            GridView1.DataBind();
+            GridView2.DataSource = gDV.GanDV;
+            GridView2.DataBind();
+        }
         protected void btnSolucionar_Click(object sender, EventArgs e)
         {
+
+            if (gDV.SortDV.Count > 0)
+            {
+                foreach (BE.Sorteo sort in gDV.SortDV)
+                {
+                    sort.DV = gDV.calcularDV(sort);
+                    gDV.SolucionarDV(sort);
+                }
+            }
+            else if (gDV.GanDV.Count > 0)
+            {
+                foreach (BE.Ganador gan in gDV.GanDV)
+                {
+                    gan.DV = gDV.calcularDV(gan);
+                    gDV.SolucionarDV(gan);
+                }
+            }
+            
 
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (gDV.SortDV.Count > 0)
+            {
+                foreach (BE.Sorteo sort in gDV.SortDV)
+                {
+                    gDV.EliminarReg(sort);
+                }
+                Enlazar();
+            }
+            else if (gDV.GanDV.Count > 0)
+            {
+                foreach (BE.Ganador gan in gDV.GanDV)
+                {
+                    gDV.EliminarReg(gan);
+                }
+                Enlazar();
+            }
         }
 
     }

@@ -14,6 +14,7 @@ namespace ASG
         BLL.Usuario gUsu = new BLL.Usuario();
         BE.Usuario us;
         Servicios.DV gdv = new Servicios.DV();
+        BLL.Sorteo gSort = new BLL.Sorteo();
         protected void Page_Load(object sender, EventArgs e)
         {
             int incons = gdv.verificarDVs();
@@ -30,6 +31,16 @@ namespace ASG
 
                 }
             }
+
+            GridView1.DataSource = gSort.Listar();
+            GridView1.DataBind();
+
         }
+
+        protected void GridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
+        {
+            
+        }
+
     }
 }

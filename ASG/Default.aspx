@@ -34,7 +34,7 @@
                         <h4>Ultimos Sorteos Añadidos</h4>
                         <hr class="border-black border-3" />
                         <div>
-                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                            <asp:GridView ID="GridView1"  CssClass="table" runat="server" OnRowDataBound="GridView1_RowDataBound1"></asp:GridView>
                         </div>
                     </div>
                     <div class="col-sm-6">

@@ -12,6 +12,15 @@ namespace ASG.BE
         public string Login { get; set; }
         public string Password { get; set; }
 
+        private int intentos;
+
+        public int Intentos
+        {
+            get { return intentos; }
+            set { intentos = value; }
+        }
+
+
         public List<Permiso> permisos = new List<Permiso>();
 
         public List<Permiso> Permisos

@@ -22,6 +22,7 @@ namespace ASG.DAL
             m.Creador = gUsu.Obtener(int.Parse(registro["idCreador"].ToString()));
             m.CantPart = int.Parse(registro["CantParticipantes"].ToString());
             m.Valor = int.Parse(registro["valor"].ToString());
+            m.Premio = registro["Premio"].ToString();
             m.DV = int.Parse(registro["DV"].ToString());
             return m;
         }
@@ -36,6 +37,8 @@ namespace ASG.DAL
             parametros.Add(acceso.CrearParametro("@crea", entidad.Creador.ID));
             parametros.Add(acceso.CrearParametro("@cant", entidad.CantPart));
             parametros.Add(acceso.CrearParametro("@valor", entidad.Valor));
+            parametros.Add(acceso.CrearParametro("@premio", entidad.Premio));
+            parametros.Add(acceso.CrearParametro("@dv", entidad.DV));
             acceso.Abrir();
             int res = acceso.Escribir("INSERTAR_SORT", parametros);
             acceso.Cerrar();
@@ -80,9 +83,50 @@ namespace ASG.DAL
                 sort.CantPart = (int)dt.Rows[0][4];
                 sort.Descripcion = (string)dt.Rows[0][5];
                 sort.Valor = (int)dt.Rows[0][6];
+                sort.DV = (int)dt.Rows[0][7];
             }
 
             return sort;
         }
+
+        public int MaxId()
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT MAX(idSorteo) FROM Sorteo";
+            cmd.CommandType = CommandType.Text;
+
+            DataTable dt = con.ExecReader(cmd);
+            int mId=0;
+            if (dt.Rows.Count > 0)
+            {
+                mId = (int)dt.Rows[0][0];
+            }
+            return mId;
+        }
+
+        public int DvSort(BE.Sorteo entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", entidad.ID));
+            parametros.Add(acceso.CrearParametro("@dv", entidad.DV));
+            acceso.Abrir();
+            int res = acceso.Escribir("SORT_DV", parametros);
+            acceso.Cerrar();
+            return res;
+        }
+
+        public int EliminarReg(BE.Sorteo entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@id", entidad.ID));
+            acceso.Abrir();
+            int res = acceso.Escribir("SORT_DEL", parametros);
+            acceso.Cerrar();
+            return res;
+        }
+
     }
 }
