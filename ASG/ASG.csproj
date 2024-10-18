@@ -326,6 +326,7 @@
     </Compile>
     <Compile Include="Sorteo.aspx.cs">
       <DependentUpon>Sorteo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Sorteo.aspx.designer.cs">
       <DependentUpon>Sorteo.aspx</DependentUpon>

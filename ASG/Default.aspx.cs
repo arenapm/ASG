@@ -35,11 +35,13 @@ namespace ASG
             GridView1.DataSource = gSort.Listar();
             GridView1.DataBind();
 
+
         }
 
         protected void GridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
         {
-            
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[6].Visible = false;
         }
 
     }

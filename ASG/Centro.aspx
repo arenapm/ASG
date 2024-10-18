@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <h2>Usuarios Bloqueados</h2>
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table"/>
+                        <asp:GridView ID="GridView1" runat="server"  OnRowDataBound="GridView1_RowDataBound1" CssClass="table"/>
                     </div>
                 </div>
             </div>

@@ -62,5 +62,10 @@ namespace ASG
         {
             Response.Redirect("Inconsistencia.aspx");
         }
+
+        protected void GridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[2].Visible = false;
+        }
     }
 }
