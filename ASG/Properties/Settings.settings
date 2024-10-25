@@ -5,8 +5,5 @@
     <Setting Name="ASG_localhost_Reportgen" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://localhost:44368/Reportgen.asmx</Value>
     </Setting>
-    <Setting Name="ASG_localhost1_Reportgen" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://localhost:44368/Reportgen.asmx</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

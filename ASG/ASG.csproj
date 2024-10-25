@@ -201,17 +201,11 @@
     <Content Include="Site.Master" />
     <Content Include="Sorteo.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web References\localhost1\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <None Include="Web References\localhost1\Reportgen.wsdl" />
     <None Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\localhost\Reportgen.disco" />
-    <None Include="Web References\localhost1\Reportgen.disco" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -373,11 +367,6 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Web References\localhost1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Web References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -413,17 +402,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ASG_localhost_Reportgen</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://localhost:44368/Reportgen.asmx%3fop=HelloWorld">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost1\</RelPath>
-      <UpdateFromURL>https://localhost:44368/Reportgen.asmx%3fop=HelloWorld</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ASG_localhost1_Reportgen</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
