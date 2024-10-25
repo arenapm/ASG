@@ -364,3 +364,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /ASG/App_Data/Database.mdf
 /ASG/App_Data/Database_log.ldf
+*.bak
