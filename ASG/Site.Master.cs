@@ -14,6 +14,7 @@ namespace ASG
     {
         BLL.Usuario gUsu = new BLL.Usuario();
         Permiso p = new Permiso(1, "ADMIN");
+        Permiso m = new Permiso(2, "MARK");
         protected void Page_Load(object sender, EventArgs e)
         {
                 GenerateNavbar();
@@ -34,6 +35,14 @@ namespace ASG
                     AgregarElementoNavbar("Home", "Default.aspx");
                     AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
                     AgregarElementoNavbar("Centro", "Centro.aspx");
+                    AgregarElementoNavbar("Logout", "Logout.aspx");
+                    Usuario.Text = "Bienvenido: " + us.Login;
+                }else if (gUsu.Validar(us, m))
+                {
+                    // Navbar para usuarios autenticados como admin
+                    AgregarElementoNavbar("Home", "Default.aspx");
+                    AgregarElementoNavbar("Nosotros", "Nosotros.aspx");
+                    AgregarElementoNavbar("Marketing", "Marketing.aspx");
                     AgregarElementoNavbar("Logout", "Logout.aspx");
                     Usuario.Text = "Bienvenido: " + us.Login;
                 }

@@ -25,6 +25,10 @@ namespace ASG
                 if (gUsu.Validar(us, p) & incons == -1)
                 {
                     Panel1.Visible = true;
+                    GridView3.DataSource = gdv.SortDV;
+                    GridView3.DataBind();
+                    GridView4.DataSource = gdv.GanDV;
+                    GridView4.DataBind();
                 }
                 else
                 {

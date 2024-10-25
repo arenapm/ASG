@@ -27,5 +27,15 @@ namespace ASG.BE
         {
             get { return permisos; }
         }
+
+        private Carrito Car;
+
+        public Carrito car
+        {
+            get { return Car; }
+            set { Car = value; }
+        }
+
+
     }
 }

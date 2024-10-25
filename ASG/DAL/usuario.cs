@@ -50,20 +50,11 @@ namespace ASG.DAL
 
             if (dt.Rows.Count == 1)
             {
-                if ((string)dt.Rows[0][2] == pass)
-                {
-                    unUsuario = new Usuario();
-                    unUsuario.ID = (int)dt.Rows[0][0];
-                    unUsuario.Login = (string)dt.Rows[0][1];
-                    unUsuario.Password = (string)dt.Rows[0][2];
-                    unUsuario.Intentos = (int)dt.Rows[0][3];
-                    
-                }
-                else
-                {
-                    SumarInt((int)dt.Rows[0][0]);
-                }
-
+                unUsuario = new Usuario();
+                unUsuario.ID = (int)dt.Rows[0][0];
+                unUsuario.Login = (string)dt.Rows[0][1];
+                unUsuario.Password = (string)dt.Rows[0][2];
+                unUsuario.Intentos = (int)dt.Rows[0][3];
             }
 
             return unUsuario;
@@ -108,7 +99,6 @@ namespace ASG.DAL
             {
 
                 unUsuario = new Usuario();
-
                 unUsuario.ID = (int)dt.Rows[0][0];
                 unUsuario.Login = (string)dt.Rows[0][1];
                 unUsuario.Password = (string)dt.Rows[0][2];
@@ -131,7 +121,7 @@ namespace ASG.DAL
 
             if (dt.Rows.Count > 0)
             {
-                 bloq = true;
+                bloq = true;
             }
 
             return bloq;

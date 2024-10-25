@@ -61,6 +61,25 @@ namespace ASG.DAL
         }
 
 
+        public List<BE.Sorteo> ListarSortUs(BE.Usuario us)
+        {
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(acceso.CrearParametro("@idus", us.ID));
+            acceso.Abrir();
+            DataTable tabla = acceso.Leer("LISTAR_SORT_NP",parametros);
+            acceso.Cerrar();
+
+            List<BE.Sorteo> sorteos = new List<BE.Sorteo>();
+            foreach (DataRow registro in tabla.Rows)
+            {
+                sorteos.Add(Convertir(registro));
+            }
+
+            return sorteos;
+        }
+
         public BE.Sorteo Obtener(int id)
         {
             Conexion con = new Conexion();

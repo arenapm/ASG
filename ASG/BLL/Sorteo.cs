@@ -25,9 +25,16 @@ namespace ASG.BLL
             return mp_sorteo.Listar();
         }
 
+        public List<BE.Sorteo> ListarSortUs(BE.Usuario us)
+        {
+            return mp_sorteo.ListarSortUs(us);
+        }
+
         public int MaxId()
         {
             return mp_sorteo.MaxId();
         }
+
+
     }
 }

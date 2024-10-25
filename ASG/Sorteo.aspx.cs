@@ -7,54 +7,41 @@ using System.Web.UI.WebControls;
 using ASG.Servicios;
 using ASG.BE;
 using ASG.BLL;
-using ASG.DAL;
-
 namespace ASG
 {
-    public partial class Sorteo : System.Web.UI.Page
+    public partial class Sorteo1 : System.Web.UI.Page
     {
+        List<BE.Sorteo> sorteos;
         BLL.Sorteo gSort = new BLL.Sorteo();
-        BE.Sorteo sort;
-        DV gDv = new DV();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            DateTime fecha = DateTime.Parse(txtFecha.Text.ToString());
-            if (fecha <= DateTime.Today)
+            if (SessionMannager.GetInstance != null)
             {
-                Response.Write("<script>alert('La fecha debe ser mayor al dia de hoy.');</script>");
-                lblFecha.Visible = true;
-                return;
+                sorteos = gSort.ListarSortUs(SessionMannager.GetInstance.Usuario);
+                GridView1.DataSource = sorteos;
+                GridView1.DataBind();
+                
             }
             else
             {
-                int valor = int.Parse(txtValorEntrada.Text);
-                if (valor > 1000 && valor!=0)
-                {
-                    Response.Write("<script>alert('El valor de entrada debe ser entre 1-1000.');</script>");
-                    lblFecha.Text = "El valor de entrada debe ser entre 1-1000";
-
-                }
-                else
-                {
-
-                    sort = new BE.Sorteo();
-                    sort.Valor = valor;
-                    sort.Nombre = txtNombre.Text;
-                    sort.Descripcion = txtDescripcion.Text;
-                    sort.Creador = SessionMannager.GetInstance.Usuario;
-                    sort.Premio = txtPremio.Text;
-                    sort.ID = gSort.MaxId();
-                    sort.DV = gDv.calcularDV(sort);
-                    gSort.insertar(sort);
-
-                }
+                Response.Redirect("Default.aspx");
             }
         }
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Inscribirse")
+            {
+                // Obtener el índice de la fila
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
 
+                // Obtener el ID del sorteo
+                int sorteoId = (int)GridView1.DataKeys[rowIndex].Value;
+
+                SessionMannager.GetInstance.Usuario.car.Inscripciones.Add(sorteos[rowIndex]);
+
+                // Mostrar un mensaje de confirmación
+                Response.Write("<script>alert('Te has inscrito al sorteo " + sorteoId + "');</script>");
+            }
+        }
     }
 }

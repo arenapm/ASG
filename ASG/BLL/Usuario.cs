@@ -52,6 +52,11 @@ namespace ASG.BLL
             return mp_usuario.ResetearInt(us);
         }
 
+        public int sumInt(BE.Usuario us)
+        {
+            return mp_usuario.SumarInt(us.ID);
+        }
+
         public int Bloquear(BE.Usuario us)
         {
             return mp_usuario.Bloquear(us);

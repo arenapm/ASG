@@ -2,19 +2,54 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <asp:Label ID="lbllogout" runat="server"/>
-            <div class="container mt-5">
-                 <h1 class="text-center mb-4">Carrito de Sorteos</h1>
-
-                        <div class="card mb-4 bg-danger text-white">
-            <div class="card-body text-center">
-                <h2 class="card-title">Contenido No Disponible</h2>
-                <p class="card-text">Actualmente estamos trabajando en el proceso de compras de sorteos, intentelo nuevamente mas tarde.</p>
-                <p class="card-text">Disculpe las molestias ocasionadas.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1>Bienvenido al Carrito de Compras</h1>
+                    <hr class="border border-danger mb-3" />
+                </div>
+                <hr class="border-black" />
             </div>
         </div>
-          </div>
-    </section>
-</main>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:Panel ID="Panel1" runat="server" Visible="false">
+                        <div class="card mb-4 bg-success text-white">
+                            <div class="card-body text-center">
+                                <h2 class="card-title">AVISO</h2>
+                                <p class="card-text">Actualmente no posee ninguna inscripcion en el carrito</p>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:Panel ID="Panel2" runat="server" Visible="false">
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                <asp:BoundField DataField="Premio" HeaderText="Premio" />
+                                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
+                                <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:Panel ID="Panel3" runat="server" Visible="false">
+                        <p>Subtotal</p>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
+    </main>
 </asp:Content>

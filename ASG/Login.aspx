@@ -40,7 +40,35 @@
                     </div>
                 </div>
             </div>
-                        <div class="container text-center">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <asp:Panel ID="Panel4" runat="server" Visible="false">
+                            <div class="card mb-4 bg-danger text-white">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title">USUARIO INEXISTENTE</h2>
+                                    <p class="card-text">El usuario que usted ingreso no existe.</p>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <asp:Panel ID="Panel3" runat="server" Visible="false">
+                            <div class="card mb-4 bg-danger text-white">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title">PROBELMAS EN LA PLATAFORMA</h2>
+                                    <p class="card-text">Actualmente nos encontramos bajo mantenimiento de la plataforma, disculpe las molestias.</p>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
                 <div class="row">
                     <div class="col-sm-12">
                         <asp:Panel ID="Panel2" runat="server" Visible="false">

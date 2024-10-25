@@ -22,6 +22,10 @@
                                 <div class="card-body text-center">
                                     <h2 class="card-title">PROBELMAS DE INCONSISTENCIA</h2>
                                     <p class="card-text">Se encontraron inconsistencias en la base de datos, se requiere accion inmediata.</p>
+                                     <p class="card-text">Tabla Sorteos.</p>
+                                     <asp:GridView ID="GridView3" runat="server" CssClass="table"></asp:GridView>
+                                     <p class="card-text">Tabla Ganadores.</p>
+                                     <asp:GridView ID="GridView4" runat="server" CssClass="table"></asp:GridView>
                                 </div>
                             </div>
                         </asp:Panel>
