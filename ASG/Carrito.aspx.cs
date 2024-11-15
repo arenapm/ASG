@@ -26,11 +26,25 @@ namespace ASG
                     {
                         Panel1.Visible = false;
                         Panel2.Visible = true;
-                        GridView1.DataSource = us.car.Inscripciones;
-                        GridView1.DataBind();
+
                         car.calcularTotal(us.car);
                         Label1.Text = us.car.precTotal.ToString();
                         Panel3.Visible = true;
+                        
+                        var sorteosAgrupados = us.car.Inscripciones
+                            .GroupBy(g => g.ID)
+                            .Select(grupo => new
+                            {
+                                grupo.First().Nombre,
+                                grupo.First().Descripcion,
+                                grupo.First().Premio,
+                                grupo.First().Valor,
+                                Cantidad = grupo.Count() // Calcula la cantidad en el grupo
+                            })
+                            .ToList();
+
+                        GridView1.DataSource = sorteosAgrupados;
+                        GridView1.DataBind();
                     }
                     else
                     {

@@ -35,6 +35,7 @@
                                 <asp:BoundField DataField="Premio" HeaderText="Premio" />
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                                 <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
                             </Columns>
                         </asp:GridView>
                     </asp:Panel>

@@ -27,6 +27,7 @@ namespace ASG
                 Response.Redirect("Default.aspx");
             }
         }
+
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Inscribirse")
@@ -37,6 +38,10 @@ namespace ASG
                 // Obtener el ID del sorteo
                 int sorteoId = (int)GridView1.DataKeys[rowIndex].Value;
 
+                if (SessionMannager.GetInstance.Usuario.car == null)
+                {
+                    SessionMannager.GetInstance.Usuario.car = new BE.Carrito();
+                }
                 SessionMannager.GetInstance.Usuario.car.Inscripciones.Add(sorteos[rowIndex]);
 
                 // Mostrar un mensaje de confirmación
